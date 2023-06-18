@@ -8,7 +8,7 @@ const navItems: { label: string; path: string; }[] = [
   { label: 'Blog', path: '/blog' },
 ];
 
-export default function Header() {
+const Header = () => {
   const pathname = usePathname();
 
   return (
@@ -29,5 +29,7 @@ export default function Header() {
     </header>
   );
 }
+
+export default Header
 
 

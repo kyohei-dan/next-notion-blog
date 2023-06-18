@@ -18,7 +18,7 @@ import {
   getAllTags,
   getAllBlocksByBlockId,
 } from '../../../lib/notion/client'
-import Header from "../../../components/Header";
+import Header from "../../../components/header";
 
 
 export const revalidate = 30

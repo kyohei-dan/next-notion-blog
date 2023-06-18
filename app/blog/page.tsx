@@ -4,7 +4,7 @@ import { NEXT_PUBLIC_URL, NEXT_PUBLIC_SITE_TITLE, NEXT_PUBLIC_SITE_DESCRIPTION, 
 import GoogleAnalytics from '../../components/google-analytics'
 import { BlogTagLink, NextPageLink } from '../../components/blog-parts'
 import { getPosts, getFirstPost, getAllTags } from '../../lib/notion/client'
-import Header from "../../components/Header";
+import Header from "../../components/header";
 import { getBlogLink, getDateStr } from '../../lib/blog-helpers'
 import { colorClass } from '../../components/notion-block'
 

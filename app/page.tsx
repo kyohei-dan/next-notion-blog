@@ -2,7 +2,7 @@ import Image from 'next/image';
 import type { Metadata } from 'next';
 import { NEXT_PUBLIC_URL, NEXT_PUBLIC_SITE_TITLE, NEXT_PUBLIC_SITE_DESCRIPTION } from './server-constants';
 import GoogleAnalytics from '../components/google-analytics';
-import Header from "../components/Header";
+import Header from "../components/header";
 import ProjectPreview from "../components/ProjectPreview";
 
 export async function generateMetadata(): Promise<Metadata> {
