@@ -1,12 +1,19 @@
 {
-  "name": "next-notion-blog",
-  "version": "1.0.0",
+  "name": "easy-notion-blog",
+  "license": "MIT",
+  "version": "0.1.1",
   "scripts": {
     "dev": "next dev",
     "start": "next start",
     "build": "node scripts/set-blog-index-cache.js && next build && node scripts/expire-blog-index-cache.js",
     "format": "prettier --write \"**/*.{js,jsx,json,ts,tsx,md,mdx,css,html,yml,yaml,scss,sass}\" --ignore-path .gitignore",
-    "lint": "next lint"
+    "lint": "next lint",
+    "test": "jest --watch"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
   },
   "dependencies": {
     "@notionhq/client": "^2.2.2",
@@ -31,12 +38,18 @@
     "framer-motion": "^10.12.10"
   },
   "devDependencies": {
+    "@testing-library/jest-dom": "^5.16.5",
+    "@testing-library/react": "^13.4.0",
     "@types/node": "^18.11.17",
     "@types/prismjs": "^1.26.0",
     "@types/react": "^18.0.26",
     "@typescript-eslint/eslint-plugin": "^5.46.1",
     "eslint": "8.30.0",
     "eslint-config-next": "^13.2.1",
+    "husky": "^8.0.2",
+    "jest": "^29.3.1",
+    "jest-environment-jsdom": "29.3.1",
+    "lint-staged": "^13.1.0",
     "node-mocks-http": "^1.12.1",
     "prettier": "^2.8.1",
     "sass": "^1.63.4",

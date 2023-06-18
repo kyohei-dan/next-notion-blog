@@ -43,7 +43,7 @@ const Home = () => (
         <section className="lead">
           <ul>
             <li>
-              <h1>Hello, I'm a Front-end Developer with 6 years of experience.</h1>
+              <h1>Hello, I&apos;m a Front-end Developer with 6 years of experience.</h1>
               <p>Please take your time to check out what I have created and posted.</p>
               <div className="contact">
                 <a href="/contact">Contact me</a>
