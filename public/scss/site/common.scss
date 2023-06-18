@@ -1,0 +1,47 @@
+@use '../base/shortcut-functions' as f;
+@use './modules' as modules;
+
+:root {
+  --font-hiragino: 'Hiragino Kaku Gothic ProN', 'ヒラギノ角ゴ ProN W3',
+    'Hiragino Sans', 'メイリオ', 'Meiryo', sans-serif;
+  // --font-hiragino: "Hiragino Kaku Gothic ProN", "ヒラギノ角ゴ ProN W3", "メイリオ", Meiryo, "ＭＳ P ゴシック", sans-serif;
+  --font-yu-gothic: '游ゴシック体', YuGothic, '游ゴシック', 'Yu Gothic',
+    'メイリオ', 'Hiragino Kaku Gothic ProN', 'Hiragino Sans', sans-serif;
+  --font-yu-mincho: '游明朝体', 'Yu Mincho', YuMincho, 'ヒラギノ明朝 Pro',
+    'Hiragino Mincho Pro', 'MS P明朝', 'MS PMincho', serif;
+  --font-noto-sans: 'Noto Sans JP', 'メイリオ', Meiryo, sans-serif;
+  --font-noto-serif: 'Noto Serif JP', sans-serif;
+}
+
+html {
+  @include f.rem-base-font-size;
+}
+
+body {
+  background-color: #fff;
+  -webkit-text-size-adjust: 100%;
+  font-feature-settings: 'palt';
+}
+
+.site-wrapper {
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+  grid-template-columns: 100%;
+  margin-inline: auto;
+  width: min(100% - 2rem, 108rem);
+  min-height: 100vh;
+}
+
+.bg-gradient {
+  background-image: linear-gradient(
+    to right,
+    rgba(106, 225, 255, 1),
+    rgba(194, 158, 218, 1),
+    rgba(91, 105, 230, 1)
+  );
+}
+
+img {
+  width: 100%;
+  height: auto;
+}

@@ -1,0 +1,35 @@
+@use "responsive" as f;
+@use "../../site/variables" as v;
+@use "sass:map";
+
+@function get-dynamic-font-size($id) {
+  $base-width: map.get(v.$base-widths, $id);
+  @if $base-width == null {
+    @return 62.5%;
+  }
+
+  @return calc(1000vw / #{$base-width});
+}
+
+@mixin rem-base-font-size() {
+  font-size: 62.5%;
+
+  $prev-width: null;
+  @each $id, $width in v.$break-points {
+    @if $prev-width == null {
+      @media (max-width: #{$width}px) {
+        font-size: get-dynamic-font-size($id);
+      }
+    } @else if $width == null {
+      @media (min-width: #{$prev-width + 1}px) {
+        font-size: get-dynamic-font-size($id);
+      }
+    } @else {
+      @media (min-width: #{$prev-width + 1}px) and (max-width: #{$width}px) {
+        font-size: get-dynamic-font-size($id);
+      }
+    }
+
+    $prev-width: $width;
+  }
+}

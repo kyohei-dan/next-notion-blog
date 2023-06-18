@@ -1,0 +1,14 @@
+@mixin flex-grid($col-count, $row-gap, $col-gap) {
+  display: flex;
+  flex-wrap: wrap;
+  gap: #{$row-gap} #{$col-gap};
+  width: 100%;
+
+  > * {
+    @if $col-count == 1 {
+      width: 100%;
+    } @else {
+      width: calc((100% - #{$col-gap * ($col-count - 1)}) / #{$col-count});
+    }
+  }
+}

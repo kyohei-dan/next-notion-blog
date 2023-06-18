@@ -18,7 +18,6 @@ export const getDateStr = (date: string) => {
   const dt = new Date(date)
 
   if(date.indexOf('T') !== -1){
-    // Consider timezone
     const elements = date.split('T')[1].split(/([+-])/)
     if (elements.length > 1) {
       const diff = parseInt(`${elements[1]}${elements[2]}`, 10)

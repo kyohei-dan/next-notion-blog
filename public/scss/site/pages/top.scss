@@ -1,0 +1,104 @@
+@use '../../base/shortcut-functions' as f;
+@use '../modules' as modules;
+
+.top {
+  .lead {
+    ul {
+      display: grid;
+      grid-template-columns: 2fr 1fr;
+      gap: 1rem;
+      li {
+        height: 40rem;
+        border-radius: 2rem;
+
+        h1 {
+          font-size: 3.4rem;
+          font-weight: 600;
+          line-height: 1.2;
+        }
+
+        p {
+          margin: 4rem 0 0 0;
+          font-size: 1.6rem;
+        }
+
+        .contact {
+          display: flex;
+          align-items: center;
+          gap: 2rem;
+          margin: auto 0 0 0;
+          a {
+            &:nth-child(1) {
+              display: flex;
+              justify-content: center;
+              align-items: center;
+              width: 18rem;
+              height: 4.8rem;
+              background-color: #171717;
+              border-radius: 4rem;
+              color: #fff;
+              font-size: 1.6rem;
+              font-weight: 500;
+            }
+
+            &:nth-child(2) {
+              width: 3.2rem;
+            }
+          }
+        }
+
+        &:nth-child(1) {
+          display: flex;
+          flex-direction: column;
+          padding: 4.8rem;
+          background-image: url('/images/gradient-bg.jpg');
+          background-size: cover;
+        }
+
+        &:nth-child(2) {
+          display: grid;
+          place-items: center;
+          background-color: #e4e4e7;
+          figure {
+            width: 24rem;
+          }
+        }
+      }
+    }
+  }
+
+  .list {
+    ul {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 1rem;
+      margin: 1rem 0 0 0;
+
+      li {
+        padding: 1.6rem;
+        height: 30rem;
+        border-radius: 2rem;
+
+        &:nth-child(1) {
+          background-color: #685cdd;
+        }
+
+        &:nth-child(2) {
+          background-color: #313442;
+        }
+
+        &:nth-child(3) {
+          background-color: #e4e4e7;
+        }
+
+        &:nth-child(4) {
+          background-color: #4e4e56;
+        }
+
+        &:nth-child(5) {
+          background-color: #171717;
+        }
+      }
+    }
+  }
+}

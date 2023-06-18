@@ -1,34 +1,23 @@
-import {
-  NEXT_PUBLIC_SITE_TITLE,
-  NEXT_PUBLIC_SITE_DESCRIPTION,
-} from './server-constants'
-import Header from '../components/header'
-import Footer from '../components/footer'
-import '../styles/global.css'
-import '../styles/syntax-coloring.css'
-import styles from '../styles/shared.module.css'
+import { NEXT_PUBLIC_SITE_TITLE, NEXT_PUBLIC_SITE_DESCRIPTION } from './server-constants'
+import '/public/scss/styles.scss'
 
 export const metadata = {
   title: NEXT_PUBLIC_SITE_TITLE,
   description: NEXT_PUBLIC_SITE_DESCRIPTION,
+  icons: {
+    icon: "/favicon.svg",
+  }
 }
 
-const RootLayout = ({
+export default function RootLayout({
   children,
 }: {
-  children: React.ReactNode,
-}) => (
-  <html lang="ja" prefix="og: https://ogp.me/ns#">
-    <body>
-      <div className={styles.container}>
-        <Header />
-        <div className={styles.content}>
-          {children}
-        </div>
-        <Footer />
-      </div>
-    </body>
-  </html>
-)
+  children: React.ReactNode;
+  }) {
 
-export default RootLayout
+  return (
+    <html lang="ja">
+      <body>{children}</body>
+    </html>
+  );
+}

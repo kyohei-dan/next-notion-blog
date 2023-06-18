@@ -1,18 +1,15 @@
-import type { Metadata } from 'next'
-import Link from 'next/link'
-import {
-  NEXT_PUBLIC_URL,
-  NEXT_PUBLIC_SITE_TITLE,
-  NEXT_PUBLIC_SITE_DESCRIPTION
-} from './server-constants'
-import GoogleAnalytics from '../components/google-analytics'
-import styles from '../styles/page.module.css'
+import Image from 'next/image';
+import type { Metadata } from 'next';
+import { NEXT_PUBLIC_URL, NEXT_PUBLIC_SITE_TITLE, NEXT_PUBLIC_SITE_DESCRIPTION } from './server-constants';
+import GoogleAnalytics from '../components/google-analytics';
+import Header from "../components/Header";
+import ProjectPreview from "../components/ProjectPreview";
 
 export async function generateMetadata(): Promise<Metadata> {
-  const title = NEXT_PUBLIC_SITE_TITLE
-  const description = NEXT_PUBLIC_SITE_DESCRIPTION
-  const url = NEXT_PUBLIC_URL ? new URL(NEXT_PUBLIC_URL) : undefined
-  const images = NEXT_PUBLIC_URL ? [{ url: new URL('/default.png', NEXT_PUBLIC_URL) }] : []
+  const title = NEXT_PUBLIC_SITE_TITLE;
+  const description = NEXT_PUBLIC_SITE_DESCRIPTION;
+  const url = NEXT_PUBLIC_URL ? new URL(NEXT_PUBLIC_URL) : undefined;
+  const images = NEXT_PUBLIC_URL ? [{ url: new URL('/default.png', NEXT_PUBLIC_URL) }] : [];
 
   const metadata: Metadata = {
     openGraph: {
@@ -20,7 +17,7 @@ export async function generateMetadata(): Promise<Metadata> {
       description: description,
       url: url,
       siteName: title,
-      type: 'website',
+      type: 'article',
       images: images,
     },
     twitter: {
@@ -34,26 +31,82 @@ export async function generateMetadata(): Promise<Metadata> {
     },
   }
 
-  return metadata
+  return metadata;
 }
 
-const RootPage = () => (
+const Home = () => (
   <>
     <GoogleAnalytics pageTitle={NEXT_PUBLIC_SITE_TITLE} />
-    <div className={styles.container}>
-      <div>
-        <h2>Welcome!</h2>
-        <p>Your easy-notion-blog deployed successfully!</p>
-        <p>Have fun!</p>
-        <p>
-          easy-notion-blog powered by{' '}
-          <Link href="https://github.com/otoyo/easy-notion-blog">
-            otoyo/easy-notion-blog
-          </Link>
-        </p>
-      </div>
+    <div className="site-wrapper top">
+      <Header />
+      <main>
+        <section className="lead">
+          <ul>
+            <li>
+              <h1>Hello, I'm a Front-end Developer with 6 years of experience.</h1>
+              <p>Please take your time to check out what I have created and posted.</p>
+              <div className="contact">
+                <a href="/contact">Contact me</a>
+                <a href="https://github.com/kyohei-dan" target="_blank">
+                  <Image src="/images/github.svg" alt="Github" width={32} height={32}/>
+                </a>
+              </div>
+            </li>
+            <li>
+              <figure>
+                <Image src="/images/profile.png" alt="logo" width={1000} height={1000}/>
+              </figure>
+            </li>
+          </ul>
+        </section>
+
+        <section className="list">
+          <ul>
+            <ProjectPreview
+              name="NPM PACKAGE"
+              description="webp converter"
+              imageUrl="/images/npm-logo-black.svg"
+              bgColor="#685cdd"
+              url="https://www.npmjs.com/package/@kyohei-dan/webp-converter-package"
+              dark
+            />
+            <ProjectPreview
+              name="GOOGLE CHROME EXTENTION"
+              description="accessibility check"
+              imageUrl="/images/accessibility-check.svg"
+              bgColor="#313442"
+              dark
+            />
+            <ProjectPreview
+              name="CHATGPT-CLONE WORDPRESS-POST"
+              description="Increase user engagement"
+              imageUrl="/images/chatgpt-clone.png"
+            />
+            <ProjectPreview
+              name="WORDPRESS"
+              description="WordPress Template Site"
+              imageUrl="/images/wordpress-template-site.png"
+              bgColor="#4e4e56"
+              dark
+            />
+            <ProjectPreview
+              name="VARIABLE-TEXT-IMAGE-GENERATOR"
+              description="create og image"
+              imageUrl="/images/project-2.png"
+              bgColor="#171717"
+              dark
+            />
+            <ProjectPreview
+              name="Krypto"
+              description="Analyze crypto currency"
+              imageUrl="/images/project-3.png"
+            />
+          </ul>
+        </section>
+      </main>
     </div>
   </>
 )
 
-export default RootPage
+export default Home
+

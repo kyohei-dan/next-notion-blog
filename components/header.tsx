@@ -1,42 +1,33 @@
 'use client'
+import Link from 'next/link';
+import { usePathname } from "next/navigation";
 
-import { usePathname } from "next/navigation"
-import Link from 'next/link'
-import { NEXT_PUBLIC_SITE_TITLE } from '../app/server-constants'
-import styles from '../styles/header.module.css'
+const navItems: { label: string; path: string; }[] = [
+  { label: 'Home', path: '/' },
+  { label: 'Projects', path: '/projects' },
+  { label: 'Blog', path: '/blog' },
+];
 
-interface NavItem {
-  label: string
-  path: string
-}
-
-const Header = () => {
-  const pathname = usePathname()
-
-  const navItems: NavItem[] = [
-    { label: 'Home', path: '/' },
-    { label: 'Blog', path: '/blog' },
-  ]
+export default function Header() {
+  const pathname = usePathname();
 
   return (
-    <header className={styles.header}>
-      <h1>
-        <Link href="/">
-          {NEXT_PUBLIC_SITE_TITLE}
-        </Link>
-      </h1>
+    <header className="site-header">
+      <nav>
+        <h1>
+          <Link href="/">PORTFOLIO</Link>
+        </h1>
 
-      <ul>
-        {navItems.map(({ label, path }) => (
-          <li key={label}>
-            <Link href={path} className={pathname === path ? 'active' : null}>
-              {label}
-            </Link>
-          </li>
-        ))}
-      </ul>
+        <ul>
+          {navItems.map(({ label, path }) => (
+            <li key={label}>
+              <Link href={path} className={pathname === path ? "is-current-page" : null}>{label}</Link>
+            </li>
+          ))}
+        </ul>
+      </nav>
     </header>
-  )
+  );
 }
 
-export default Header
+
