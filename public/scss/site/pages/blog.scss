@@ -1,5 +1,5 @@
-@use "../../base/shortcut-functions" as f;
-@use "../modules" as modules;
+@use '../../base/shortcut-functions' as f;
+@use '../modules' as modules;
 
 .blog {
   .lower-header {
@@ -23,63 +23,27 @@
     }
   }
 
-  .list {
-    ul {
-      display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 1rem;
-      margin: 1rem 0 0 0;
+  .post {
+    .inner {
+      margin: 8rem 0 0 0;
+    }
 
+    .post-list {
       li {
-        padding: 1.6rem;
-        height: 10rem;
-        border-radius: 2rem;
-
-        &:nth-child(1) {
-          background-color: #685cdd;
+        + li {
+          margin: 2.4rem 0 0 0;
         }
-
-        &:nth-child(2) {
-          background-color: #313442;
-        }
-
-        &:nth-child(3) {
-          background-color: #e4e4e7;
-        }
-
-        &:nth-child(4) {
-          background-color: #4e4e56;
-        }
-
-        &:nth-child(5) {
-          background-color: #171717;
-        }
-
         a {
-          position: relative;
-        }
+          display: inline-flex;
+          time {
+            color: #706f6c;
+            font-size: 1.4rem;
+          }
 
-        h3 {
-          color: #fff;
-          font-size: 1.4rem;
-        }
-
-        p {
-          color: #d4d4d8;
-          font-size: 1.4rem;
-        }
-
-        .arrow {
-          position: absolute;
-          top: 0;
-          right: 0;
-          display: flex;
-          justify-content: center;
-          align-items: center;
-          width: 3rem;
-          height: 3rem;
-          background-color: #fff;
-          border-radius: 50%;
+          h3 {
+            margin: 0 0 0 4rem;
+            font-size: 1.4rem;
+          }
         }
       }
     }

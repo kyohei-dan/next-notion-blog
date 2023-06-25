@@ -36,7 +36,7 @@ const Code = ({ block }) => {
   }
 
   return (
-    <div className={styles.code}>
+    <div className="c-code-blocks">
       {language === 'mermaid' ? (
         <Mermaid id={`mermaid-${block.Id}`} definition={code} />
       ) : (

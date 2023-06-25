@@ -1,6 +1,7 @@
-@use "common";
+@use 'common';
 // @use "libs";
-@use "pages/top";
-@use "pages/blog";
-@use "parts/header";
-@use "parts/footer";
+@use 'pages/top';
+@use 'pages/blog';
+@use 'pages/blog-single';
+@use 'parts/header';
+@use 'parts/footer';

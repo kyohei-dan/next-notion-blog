@@ -2,11 +2,10 @@ import type { Metadata } from 'next'
 import Link from 'next/link'
 import { NEXT_PUBLIC_URL, NEXT_PUBLIC_SITE_TITLE, NEXT_PUBLIC_SITE_DESCRIPTION, NUMBER_OF_POSTS_PER_PAGE } from '../../app/server-constants'
 import GoogleAnalytics from '../../components/google-analytics'
-import { BlogTagLink, NextPageLink } from '../../components/blog-parts'
-import { getPosts, getFirstPost, getAllTags } from '../../lib/notion/client'
+import { NextPageLink } from '../../components/blog-parts'
+import { getPosts, getFirstPost } from '../../lib/notion/client'
 import Header from "../../components/header";
 import { getBlogLink, getDateStr } from '../../lib/blog-helpers'
-import { colorClass } from '../../components/notion-block'
 
 export const revalidate = 60
 
@@ -36,15 +35,13 @@ export async function generateMetadata(): Promise<Metadata> {
       canonical: url,
     },
   }
-
   return metadata
 }
 
 const BlogPage = async () => {
-  const [posts, firstPost, tags] = await Promise.all([
+  const [posts, firstPost] = await Promise.all([
     getPosts(NUMBER_OF_POSTS_PER_PAGE),
     getFirstPost(),
-    getAllTags(),
   ])
 
   return (
@@ -59,29 +56,22 @@ const BlogPage = async () => {
               <p className="lead">Here is a list of our technical articles. We use Notion for content management.</p>
             </div>
           </header>
-          <BlogTagLink heading="Categories" tags={tags} />
-          <section>
-            <ul>
-            {posts.map(post => {
-              return (
-                <li key={post.Slug}>
-                  <Link href={getBlogLink(post.Slug)}>
-                    <h3>{post.Title}</h3>
-                    <time>{post.Date ? getDateStr(post.Date) : ''}</time>
-                    <ul>
-                    {post.Tags.length && post.Tags.map((tag) => (
-                      <li key={tag.name}>
-                        <span className={`tag ${colorClass(tag.color)}`} >
-                          {tag.name}
-                        </span>
-                      </li>
-                    ))}
-                    </ul>
-                  </Link>
-                </li>
-              )
-            })}
-            </ul>
+
+          <section className="post">
+            <div className="inner">
+              <ul className="post-list">
+              {posts.map(post => {
+                return (
+                  <li key={post.Slug}>
+                    <Link href={getBlogLink(post.Slug)}>
+                      <time>{post.Date ? getDateStr(post.Date) : ''}</time>
+                      <h3>{post.Title}</h3>
+                    </Link>
+                  </li>
+                )
+              })}
+              </ul>
+            </div>
           </section>
         </main>
         <footer>

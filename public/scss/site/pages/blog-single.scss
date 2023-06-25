@@ -1,0 +1,135 @@
+@use '../../base/shortcut-functions' as f;
+@use '../modules' as modules;
+
+.blog-single {
+  .lower-header {
+    padding: 2.5rem;
+    background-image: linear-gradient(to right, #f1f1f1, #f1f1f1, #f6dfaf);
+    border-radius: 2rem;
+
+    .inner {
+      display: flex;
+      flex-direction: column;
+      gap: 8rem;
+    }
+
+    h1 {
+      font-size: 4rem;
+      font-weight: 600;
+    }
+
+    .lead {
+      font-size: 1.4rem;
+    }
+  }
+
+  .post {
+    .inner {
+      margin: 8rem 0 8rem 0;
+    }
+
+    .c-post-tag-blocks {
+      font-size: 1.6rem;
+      a {
+        padding: 0.6rem 1rem;
+        + a {
+          margin: 0 0 0 1.2rem;
+        }
+      }
+    }
+
+    .c-heading-third {
+      margin: 2.4rem 0 0 0;
+      font-size: 2.4rem;
+      font-weight: 700;
+      line-height: 2rem;
+    }
+
+    .c-post-date {
+      display: block;
+      margin: 2.4rem 0 0 0;
+      color: #706f6c;
+      font-size: 1.6rem;
+    }
+
+    .c-post-blocks {
+      h5 {
+        margin: 4rem 0 0 0;
+        font-size: 1.8rem;
+        font-weight: 700;
+      }
+
+      p {
+        margin: 2.4rem 0 0 0;
+        font-size: 1.6rem;
+        line-height: 1.7;
+      }
+    }
+
+    .c-code-blocks {
+      display: block;
+      margin: 1.6rem 0;
+      width: 100%;
+
+      > div:first-child {
+        background: rgb(247, 246, 243);
+        border-radius: var(--radius);
+      }
+
+      > div div {
+        display: flex;
+        justify-content: flex-end;
+        padding: 1rem 0 0 0;
+      }
+
+      button {
+        display: block;
+        width: 4rem;
+        border: 0;
+        border-radius: var(--radius);
+        background-color: rgba(227, 226, 224, 0.5);
+        color: var(--fg);
+        line-height: 1.2rem;
+        cursor: pointer;
+      }
+
+      pre {
+        display: block;
+        overflow: auto;
+        padding: 0.8rem 2rem 3rem;
+        font-size: 1.6rem;
+        line-height: 1.6;
+
+        code {
+          color: var(--fg);
+          padding: 0;
+          background: rgb(247, 246, 243) !important;
+          border-radius: 0;
+        }
+      }
+    }
+
+    ul {
+      margin: 2.4rem 0 0 0;
+      padding-left: 3rem;
+      text-indent: 1em;
+      list-style-type: disc;
+
+      li {
+        font-size: 1.6rem;
+        line-height: 1.7;
+      }
+    }
+
+    ol {
+      margin: 2.4rem 0 0 0;
+      padding-left: 3rem;
+      text-indent: 1em;
+      list-style-type: decimal;
+      li {
+        font-size: 1.6rem;
+        line-height: 1.7;
+      }
+    }
+  }
+}

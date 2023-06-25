@@ -17,16 +17,16 @@ import styles from '../styles/blog-parts.module.css'
 import '../styles/notion-color.css'
 
 export const PostDate = ({ post }) => (
-  <div className={styles.postDate}>
+  <time className='c-post-date'>
     {post.Date ? getDateStr(post.Date) : ''}
-  </div>
+  </time>
 )
 
 export const PostTitle = ({ post, enableLink = true }) => {
   const postTitle = post.Title ? post.Title : ''
 
   return (
-    <h3 className={styles.postTitle}>
+    <h3 className="c-heading-third">
       {enableLink ? (
         <Link href={getBlogLink(post.Slug)}>
           {postTitle}
@@ -39,7 +39,7 @@ export const PostTitle = ({ post, enableLink = true }) => {
 }
 
 export const PostTags = ({ post }) => (
-  <div className={styles.postTags}>
+  <div className="c-post-tag-blocks">
     {post.Tags &&
       post.Tags.length > 0 &&
       post.Tags.map((tag: SelectProperty) => (
@@ -51,20 +51,20 @@ export const PostTags = ({ post }) => (
 )
 
 export const PostExcerpt = ({ post }) => (
-  <div className={styles.postExcerpt}>
+  <div>
     <p>{post.Excerpt ? post.Excerpt : ''}</p>
   </div>
 )
 
 export const PostBody = ({ blocks }) => (
-  <div className={styles.postBody}>
+  <div className="c-post-blocks">
     <NotionBlocks blocks={blocks} isRoot={true} />
   </div>
 )
 
 export const ReadMoreLink = ({ post }) => (
-  <div className={styles.readMoreLink}>
-    <Link href={getBlogLink(post.Slug)} className={styles.readMore}>
+  <div>
+    <Link href={getBlogLink(post.Slug)}>
       Read more
     </Link>
   </div>
@@ -79,7 +79,7 @@ export const NextPageLink = ({ firstPost, posts, tag = null }) => {
   if (firstPost.Date === lastPost.Date) return null
 
   return (
-    <div className={styles.nextPageLink}>
+    <div>
       <Link
         href={
           tag
@@ -96,11 +96,11 @@ export const NextPageLink = ({ firstPost, posts, tag = null }) => {
 export const NoContents = ({ contents }) => {
   if (!!contents && contents.length > 0) return null
 
-  return <div className={styles.noContents}>There are no contents yet</div>
+  return <div>There are no contents yet</div>
 }
 
 export const BlogPostLink = ({ heading, posts }) => (
-  <div className={styles.blogPostLink}>
+  <div>
     <h3>{heading}</h3>
     <NoContents contents={posts} />
     <PostLinkList posts={posts} />
@@ -108,7 +108,7 @@ export const BlogPostLink = ({ heading, posts }) => (
 )
 
 export const BlogTagLink = ({ heading, tags }) => (
-  <div className={styles.blogTagLink}>
+  <div>
     <h3>{heading}</h3>
     <NoContents contents={tags} />
     <TagLinkList tags={tags} />
@@ -152,7 +152,7 @@ export const TagLinkList = ({ tags }) => {
 }
 
 export const PostsNotFound = () => (
-  <div className={styles.postsNotFound}>
+  <div>
     Woops! did not find the posts, redirecting you back to the blog index
   </div>
 )

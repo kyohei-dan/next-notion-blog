@@ -51,7 +51,6 @@ export async function generateMetadata({ params }): Promise<Metadata> {
       canonical: url,
     },
   }
-
   return metadata
 }
 
@@ -60,7 +59,7 @@ export async function generateStaticParams() {
   return posts.map(p => ({ slug: p.Slug }));
 }
 
-const BlogSlugPage = async ({ params: { slug } }) => {
+const BlogSinglePage = async ({ params: { slug } }) => {
   const post = await getPostBySlug(slug);
 
   if (!post) { redirect('/blog') }
@@ -76,7 +75,7 @@ const BlogSlugPage = async ({ params: { slug } }) => {
   return (
     <>
       <GoogleAnalytics pageTitle={post.Title} />
-      <div className="site-wrapper blog-slug">
+      <div className="site-wrapper blog-single">
         <Header />
         <main>
           <header className="lower-header">
@@ -87,23 +86,25 @@ const BlogSlugPage = async ({ params: { slug } }) => {
           </header>
 
           <section className="post">
-            <PostDate post={post} />
-            <PostTags post={post} />
-            <PostTitle post={post} enableLink={false} />
-            <PostBody blocks={blocks} />
+            <div className="inner">
+              <PostTags post={post} />
+              <PostTitle post={post} enableLink={false} />
+              <PostDate post={post} />
+              <PostBody blocks={blocks} />
+            </div>
           </section>
 
-          <section className="post-category">
+          {/* <section className="post-category">
             <BlogPostLink heading="Posts in the same category" posts={otherPostsHavingSameTag}/>
           </section>
 
           <section className="all-category">
             <BlogTagLink heading="Categories" tags={tags} />
-          </section>
+          </section> */}
         </main>
       </div>
     </>
   )
 }
 
-export default BlogSlugPage
+export default BlogSinglePage
