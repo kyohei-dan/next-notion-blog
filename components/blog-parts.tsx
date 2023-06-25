@@ -13,7 +13,6 @@ import {
   getTagLink,
   getTagBeforeLink,
 } from '../lib/blog-helpers'
-import styles from '../styles/blog-parts.module.css'
 import '../styles/notion-color.css'
 
 export const PostDate = ({ post }) => (

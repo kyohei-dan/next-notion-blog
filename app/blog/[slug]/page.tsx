@@ -3,8 +3,6 @@ import { redirect } from 'next/navigation';
 import { NEXT_PUBLIC_URL, NEXT_PUBLIC_SITE_TITLE } from '../../server-constants';
 import GoogleAnalytics from '../../../components/google-analytics';
 import {
-  BlogPostLink,
-  BlogTagLink,
   PostBody,
   PostDate,
   PostTags,
@@ -14,8 +12,6 @@ import { getBlogLink } from '../../../lib/blog-helpers';
 import {
   getAllPosts,
   getPostBySlug,
-  getPostsByTag,
-  getAllTags,
   getAllBlocksByBlockId,
 } from '../../../lib/notion/client'
 import Header from "../../../components/header";
@@ -64,13 +60,10 @@ const BlogSinglePage = async ({ params: { slug } }) => {
 
   if (!post) { redirect('/blog') }
 
-  const [blocks, tags, sameTagPosts] = await Promise.all([
+  const [blocks] = await Promise.all([
     getAllBlocksByBlockId(post.PageId),
-    getAllTags(),
-    getPostsByTag(post.Tags[0]?.name, 6)
   ]);
 
-  const otherPostsHavingSameTag = sameTagPosts.filter((p) => p.Slug !== post.Slug)
 
   return (
     <>
@@ -93,14 +86,6 @@ const BlogSinglePage = async ({ params: { slug } }) => {
               <PostBody blocks={blocks} />
             </div>
           </section>
-
-          {/* <section className="post-category">
-            <BlogPostLink heading="Posts in the same category" posts={otherPostsHavingSameTag}/>
-          </section>
-
-          <section className="all-category">
-            <BlogTagLink heading="Categories" tags={tags} />
-          </section> */}
         </main>
       </div>
     </>
