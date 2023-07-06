@@ -46,7 +46,7 @@ const Home = () => (
               <h1>Hello, I&apos;m a Front-end Developer with 6 years of experience.</h1>
               <p>Please take your time to check out what I have created and posted.</p>
               <div className="contact">
-                <a href="/contact">Contact me</a>
+                <a href="/blog">Blog</a>
                 <a href="https://github.com/kyohei-dan" target="_blank">
                   <Image src="/images/github.svg" alt="Github" width={32} height={32}/>
                 </a>
@@ -69,37 +69,48 @@ const Home = () => (
               bgColor="#685cdd"
               url="https://www.npmjs.com/package/@kyohei-dan/webp-converter-package"
               dark
-            />
+              />
             <ProjectPreview
               name="GOOGLE CHROME EXTENTION"
-              description="accessibility check"
+              description="Accessibility check"
               imageUrl="/images/accessibility-check.svg"
               bgColor="#313442"
+              url="https://chrome.google.com/webstore/detail/overflow-elements-check/nhpepiaeojjlngfmmpfnfijlppdneelc"
               dark
             />
             <ProjectPreview
               name="CHATGPT-CLONE WORDPRESS-POST"
-              description="Increase user engagement"
+              description="system using CHATGPT and WordPress."
               imageUrl="/images/chatgpt-clone.png"
-            />
+              url="https://big-d.dev/gpt/"
+              />
             <ProjectPreview
               name="WORDPRESS"
-              description="WordPress Template Site"
+              description="WordPress Accessibility Template Site"
               imageUrl="/images/wordpress-template-site.png"
+              url="https://big-d.dev/"
               bgColor="#4e4e56"
               dark
-            />
+              />
             <ProjectPreview
               name="VARIABLE-TEXT-IMAGE-GENERATOR"
               description="create og image"
-              imageUrl="/images/project-2.png"
+              imageUrl="/images/satori.png"
+              url="https://og-image-generator-mu.vercel.app/og-image-generator/example1"
               bgColor="#171717"
               dark
+              />
+            <ProjectPreview
+              name="TOOL APP"
+              description="develop support tool"
+              imageUrl="/images/tool-app.png"
+              url="https://tool-app.vercel.app/"
             />
             <ProjectPreview
-              name="Krypto"
-              description="Analyze crypto currency"
-              imageUrl="/images/project-3.png"
+              name="TODO APP"
+              description="using React"
+              imageUrl="/images/todo-app.png"
+              url="https://portfolio-todo-app.vercel.app/"
             />
           </ul>
         </section>

@@ -1,7 +1,24 @@
-@use "../base/shortcut-functions" as f;
+@use '../base/shortcut-functions' as f;
 
 .c-projectpreview {
   overflow: hidden;
+
+  &:nth-child(3),
+  &:nth-child(4),
+  &:nth-child(5) {
+    .inner {
+      background-size: 80%;
+      background-position: 50% 96%;
+    }
+  }
+
+  &:nth-child(6),
+  &:nth-child(7) {
+    .inner {
+      background-size: 80%;
+      background-position: 50% 80%;
+    }
+  }
 
   &.dark {
     h2 {
@@ -16,12 +33,11 @@
   }
 
   .inner {
-    padding: 1.4rem 2.4rem;
     width: 100%;
     height: 100%;
     background-repeat: no-repeat;
     background-position: center;
-    background-size: 48%;
+    background-size: 40%;
   }
 
   h2 {
