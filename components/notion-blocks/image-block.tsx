@@ -4,7 +4,6 @@ import React from 'react'
 import useSWR from "swr"
 import axios from 'axios'
 import { Block } from '../../lib/notion/interfaces'
-import styles from '../../styles/blog.module.css'
 
 const fetchBlock = async (blockId: string): Promise<Block> => {
   try {
@@ -31,7 +30,7 @@ const ImageBlock = ({ block: initialBlock }) => {
   const { data: block } = useSWR(isExpired(initialBlock) && initialBlock.Id, fetchBlock, { fallbackData: initialBlock })
 
   return (
-    <figure className={styles.image}>
+    <figure>
       <div>
         <img
           src={
@@ -43,7 +42,7 @@ const ImageBlock = ({ block: initialBlock }) => {
         />
       </div>
       {block.Image.Caption.length > 0 && block.Image.Caption[0].Text.Content ? (
-        <figcaption className={styles.caption}>
+        <figcaption>
           {block.Image.Caption[0].Text.Content}
         </figcaption>
       ) : null}

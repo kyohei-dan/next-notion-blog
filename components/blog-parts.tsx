@@ -13,7 +13,6 @@ import {
   getTagLink,
   getTagBeforeLink,
 } from '../lib/blog-helpers'
-import '../styles/notion-color.css'
 
 export const PostDate = ({ post }) => (
   <time className='c-post-date'>
@@ -42,9 +41,9 @@ export const PostTags = ({ post }) => (
     {post.Tags &&
       post.Tags.length > 0 &&
       post.Tags.map((tag: SelectProperty) => (
-        <Link href={getTagLink(tag.name)} className={`tag ${colorClass(tag.color)}`} key={tag.name}>
+        <span className={`tag ${colorClass(tag.color)}`} key={tag.name}>
           {tag.name}
-        </Link>
+        </span>
       ))}
   </div>
 )

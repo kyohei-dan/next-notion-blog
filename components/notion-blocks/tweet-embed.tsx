@@ -1,8 +1,5 @@
 'use client'
-
 import { TwitterTweetEmbed } from 'react-twitter-embed'
-
-import styles from '../../styles/notion-block.module.css'
 
 const TweetEmbed = ({ url }) => {
   let matched: Array<string>
@@ -18,7 +15,7 @@ const TweetEmbed = ({ url }) => {
   }
 
   return (
-    <div className={styles.tweetEmbed}>
+    <div>
       <TwitterTweetEmbed tweetId={matched[1]} />
     </div>
   )

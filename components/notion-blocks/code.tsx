@@ -1,5 +1,4 @@
 'use client'
-
 import React, { useState } from 'react';
 import Prism from 'prismjs'
 import 'prismjs/components/prism-css'
@@ -18,8 +17,6 @@ import 'prismjs/components/prism-yaml'
 
 import Mermaid from './mermaid'
 import { RichText } from '../../lib/notion/interfaces'
-import styles from '../../styles/notion-block.module.css'
-
 
 const Code = ({ block }) => {
   const [state, setState] = useState(false)
@@ -54,7 +51,7 @@ const Code = ({ block }) => {
         </div>
       )}
       {block.Code.Caption.length > 0 && block.Code.Caption[0].Text.Content ? (
-        <div className={styles.caption}>
+        <div>
           {block.Code.Caption[0].Text.Content}
         </div>
       ) : null}

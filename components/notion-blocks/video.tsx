@@ -4,8 +4,6 @@ import React from 'react'
 import YouTube, { YouTubeProps } from 'react-youtube'
 import { isYouTubeURL, parseYouTubeVideoId } from '../../lib/blog-helpers'
 
-import styles from '../../styles/notion-block.module.css'
-
 const Video = ({ block }) => {
   let url: URL
   try {
@@ -35,8 +33,8 @@ const Video = ({ block }) => {
   }
 
   return (
-    <div className={styles.video}>
-      <YouTube videoId={videoId} opts={opts} onReady={onPlayerReady} className={styles.youtube} />
+    <div>
+      <YouTube videoId={videoId} opts={opts} onReady={onPlayerReady} />
     </div>
   )
 }

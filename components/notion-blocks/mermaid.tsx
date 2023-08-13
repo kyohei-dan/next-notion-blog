@@ -1,9 +1,6 @@
 'use client'
-
 import React, { useEffect, useRef, FC } from 'react'
 import mermaid from 'mermaid'
-
-import styles from '../../styles/mermaid.module.css'
 
 type Props = {
   id: string
@@ -35,7 +32,7 @@ const Mermaid: FC<Props> = props => {
   }, [definition, id])
 
   return (
-    <div className={styles.diagramContainer}>
+    <div>
       <div id={id} />
       <div ref={ref} />
     </div>

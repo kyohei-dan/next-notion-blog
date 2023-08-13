@@ -1,9 +1,6 @@
 'use client'
-
 import React, { useState, useEffect } from 'react'
 import axios from 'axios'
-
-import styles from '../../styles/notion-block.module.css'
 
 interface Metadata {
   title: string | null
@@ -49,7 +46,7 @@ const Bookmark = ({ block }) => {
   const { title, description, image } = metadata
 
   return (
-    <div className={styles.bookmark}>
+    <div>
       <a href={url.toString()} target="_blank" rel="noopener noreferrer">
         <div>
           <div>{title ? title : ''}</div>

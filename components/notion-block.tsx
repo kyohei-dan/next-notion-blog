@@ -9,9 +9,6 @@ import ImageBlock from './notion-blocks/image-block'
 import InlineEquation from './notion-blocks/inline-equation'
 import BlockEquation from './notion-blocks/block-equation'
 
-import styles from '../styles/notion-block.module.css'
-import '../styles/notion-color.css'
-
 const RichText = ({ richText }) => {
   let element
   if (richText.Text) {
@@ -82,7 +79,7 @@ const Heading = ({ heading, level = 1, headings }) => {
 
   if (heading.IsToggleable) {
     return (
-      <details className={styles.toggle}>
+      <details>
         <summary>
           <a href={`#${id}`} id={id}>
             {htag}
@@ -106,7 +103,7 @@ const buildHeadingId = heading => heading.RichTexts.map((richText: interfaces.Ri
 
 const TableOfContents = ({ block, headings }) => {
   return (
-    <div className={styles.tableOfContents}>
+    <div>
       {headings.map((headingBlock: interfaces.Block) => {
         const heading = headingBlock.Heading1 || headingBlock.Heading2 || headingBlock.Heading3
 
@@ -118,7 +115,7 @@ const TableOfContents = ({ block, headings }) => {
         }
 
         return (
-          <a href={`#${buildHeadingId(heading)}`} className={`${colorClass(block.TableOfContents.Color)} ${styles[indentClass]}`} key={headingBlock.Id}>
+          <a href={`#${buildHeadingId(heading)}`} className={`${colorClass(block.TableOfContents.Color)}`} key={headingBlock.Id}>
             <div key={headingBlock.Id}>
               {heading.RichTexts.map((richText: interfaces.RichText) => richText.PlainText).join('')}
             </div>
@@ -139,11 +136,8 @@ const Quote = ({ block, headings }) => (
 )
 
 const Callout = ({ block, headings }) => {
-  const color = colorClass(block.Callout.Color)
-  const className = color ? `${styles.callout} ${color}` : styles.callout
-
   return (
-    <div className={className}>
+    <div>
       <div>{block.Callout.Icon.Emoji}</div>
       <div>
         {block.Callout.RichTexts.map((richText: interfaces.RichText, i: number) => (
@@ -156,7 +150,7 @@ const Callout = ({ block, headings }) => {
 }
 
 const Table = ({ block }) => (
-  <div className={styles.table}>
+  <div>
     <table>
       <tbody>
         {block.Table.Rows.map((tableRow: interfaces.TableRow, j: number) => {
@@ -188,7 +182,7 @@ const Table = ({ block }) => (
 )
 
 const ColumnList = ({ block, headings }) => (
-  <div className={styles.columnList}>
+  <div>
     {block.ColumnList.Columns.map((column: interfaces.Column) => (
       <div key={column.Id}>
         <NotionBlocks blocks={column.Children} headings={headings} />
@@ -235,7 +229,7 @@ const List = ({ block, headings, level = 0 }) => {
   }
 
   return (
-    <div className={styles.toDo}>
+    <div>
       <ToDoItems blocks={block.ListItems} headings={headings} />
     </div>
   )
@@ -302,7 +296,7 @@ const ToDoItems = ({ blocks, headings }) =>
 const SyncedBlock = ({ block, headings }) => <NotionBlocks blocks={block.SyncedBlock.Children} headings={headings} />
 
 const Toggle = ({ block, headings }) => (
-  <details className={`${styles.toggle} ${colorClass(block.Toggle.Color)}`}>
+  <details className={`${colorClass(block.Toggle.Color)}`}>
     <summary>
       {block.Toggle.RichTexts.map((richText: interfaces.RichText, i: number) => (
         <RichText richText={richText} key={`summary-${block.Id}-${i}`} />
