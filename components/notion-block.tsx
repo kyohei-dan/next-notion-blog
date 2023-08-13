@@ -106,14 +106,6 @@ const TableOfContents = ({ block, headings }) => {
     <div>
       {headings.map((headingBlock: interfaces.Block) => {
         const heading = headingBlock.Heading1 || headingBlock.Heading2 || headingBlock.Heading3
-
-        let indentClass = ''
-        if (headingBlock.Type === 'heading_2') {
-          indentClass = 'indent-1'
-        } else if (headingBlock.Type === 'heading_3') {
-          indentClass = 'indent-2'
-        }
-
         return (
           <a href={`#${buildHeadingId(heading)}`} className={`${colorClass(block.TableOfContents.Color)}`} key={headingBlock.Id}>
             <div key={headingBlock.Id}>
