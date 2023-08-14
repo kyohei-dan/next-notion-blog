@@ -72,7 +72,7 @@ const Home = () => (
               />
             <ProjectPreview
               name="GOOGLE CHROME EXTENTION"
-              description="Accessibility check"
+              description="Overflow Elements Check"
               imageUrl="/images/accessibility-check.svg"
               bgColor="#313442"
               url="https://chrome.google.com/webstore/detail/overflow-elements-check/nhpepiaeojjlngfmmpfnfijlppdneelc"

@@ -46,7 +46,7 @@ const Bookmark = ({ block }) => {
   const { title, description, image } = metadata
 
   return (
-    <div>
+    <div className="bookmark">
       <a href={url.toString()} target="_blank" rel="noopener noreferrer">
         <div>
           <div>{title ? title : ''}</div>

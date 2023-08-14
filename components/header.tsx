@@ -2,7 +2,7 @@
 import Link from 'next/link';
 import { usePathname } from "next/navigation";
 
-const navItems: { label: string; path: string; }[] = [
+const navItems: { label: string; path: string }[] = [
   { label: 'Home', path: '/' },
   { label: 'Blog', path: '/blog' },
 ];
@@ -20,7 +20,12 @@ const Header = () => {
         <ul>
           {navItems.map(({ label, path }) => (
             <li key={label}>
-              <Link href={path} className={pathname === path ? "is-current-page" : null}>{label}</Link>
+              <Link
+                href={path}
+                className={pathname === path || pathname.startsWith(`${path}/`) ? "is-current-page" : null}
+              >
+                {label}
+              </Link>
             </li>
           ))}
         </ul>
@@ -30,5 +35,3 @@ const Header = () => {
 }
 
 export default Header
-
-

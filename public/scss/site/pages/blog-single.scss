@@ -216,6 +216,9 @@
     width: 100%;
     max-width: 100%;
     font-size: 0.9rem;
+    + .bookmark {
+      margin: 2.4rem 0 0 0;
+    }
   }
   .bookmark > a {
     width: 100%;
@@ -274,7 +277,8 @@
   }
   .bookmark > a > div:last-child {
     flex: 1 1 180px;
-    position: relative;
+    max-width: 23rem;
+    height: 12rem;
   }
   @media (max-width: 640px) {
     .bookmark > a > div:last-child {
@@ -282,7 +286,6 @@
     }
   }
   .bookmark > a > div:last-child > img {
-    position: absolute !important;
     width: 100%;
     height: 100%;
     object-fit: cover;
