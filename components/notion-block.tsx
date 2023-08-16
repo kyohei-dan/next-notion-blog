@@ -45,7 +45,7 @@ const RichText = ({ richText }) => {
     element = <code>{element}</code>
   }
   if (richText.Href) {
-    element = <a href={richText.Href}>{element}</a>
+    element = <a href={richText.Href} target='_blank'>{element}</a>
   }
 
   return element
@@ -174,7 +174,7 @@ const Table = ({ block }) => (
 )
 
 const ColumnList = ({ block, headings }) => (
-  <div>
+  <div className="c-column-list">
     {block.ColumnList.Columns.map((column: interfaces.Column) => (
       <div key={column.Id}>
         <NotionBlocks blocks={column.Children} headings={headings} />
