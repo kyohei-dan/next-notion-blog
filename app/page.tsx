@@ -79,14 +79,14 @@ const Home = () => (
               dark
             />
             <ProjectPreview
-              name="CHATGPT-CLONE WORDPRESS-POST"
-              description="system using CHATGPT and WordPress."
-              imageUrl="/images/chatgpt-clone.png"
-              url="https://big-d.dev/gpt/"
+              name="TASK APP"
+              description="ログインして確認できます→dan.kyohei@gmail.com / HuNv0DFa"
+              imageUrl="/images/task-app.png"
+              url="https://task-app-mocha-beta.vercel.app/"
               />
             <ProjectPreview
               name="WORDPRESS"
-              description="WordPress Accessibility Template Site"
+              description="アクセシビリティにとことん対応したダミーサイト"
               imageUrl="/images/wordpress-template-site.png"
               url="https://big-d.dev/"
               bgColor="#4e4e56"
@@ -108,7 +108,7 @@ const Home = () => (
             />
             <ProjectPreview
               name="TODO APP"
-              description="using React"
+              description="React"
               imageUrl="/images/todo-app.png"
               url="https://portfolio-todo-app.vercel.app/"
             />
