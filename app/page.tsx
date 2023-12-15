@@ -85,6 +85,14 @@ const Home = () => (
               url="https://task-app-mocha-beta.vercel.app/"
               />
             <ProjectPreview
+              name="CODE SNAP APP"
+              description="コードを画像としてアウトプットできるアプリ"
+              imageUrl="/images/code-snap-app.png"
+              url="https://code-snap-app-nine.vercel.app/"
+              bgColor="#4e4e56"
+              dark
+              />
+            <ProjectPreview
               name="WORDPRESS"
               description="アクセシビリティにとことん対応したダミーサイト"
               imageUrl="/images/wordpress-template-site.png"
