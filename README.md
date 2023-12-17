@@ -4,6 +4,10 @@
 
 このアプリは Next.js, Notion を使用した、自分のポートフォリオアプリです。
 
+### URL
+
+<a href="https://next-notion-blog-flax.vercel.app/"><strong>https://next-notion-blog-flax.vercel.app/</strong></a>
+
 ---
 
 ## 2. 使用技術
