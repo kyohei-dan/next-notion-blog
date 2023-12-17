@@ -48,13 +48,13 @@ const Home = () => (
               <div className="contact">
                 <a href="/blog">Blog</a>
                 <a href="https://github.com/kyohei-dan" target="_blank">
-                  <Image src="/images/github.svg" alt="Github" width={32} height={32}/>
+                  <Image src="/images/github.svg" alt="Github" width={32} height={31}/>
                 </a>
               </div>
             </li>
             <li>
               <figure>
-                <Image src="/images/profile.png" alt="logo" width={1000} height={1000}/>
+                <Image src="/images/profile.png" alt="logo" width={1000} height={1000} priority={true} />
               </figure>
             </li>
           </ul>
